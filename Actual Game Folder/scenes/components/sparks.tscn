@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cu4pdsycljoly"]
+
+[node name="Sparks" type="CPUParticles2D" unique_id=1848342763]
+position = Vector2(1, 0)
+amount = 100
+lifetime = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+linear_accel_min = -50.0
+linear_accel_max = 50.0
+color = Color(1, 1, 0, 1)
+hue_variation_max = 1.0

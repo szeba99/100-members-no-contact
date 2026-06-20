@@ -14,6 +14,7 @@ radius = 84.0
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_7buym")
 gravity_scale = 0.0
+contact_monitor = true
 script = ExtResource("1_7buym")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2048784928]
@@ -30,4 +31,5 @@ stream = ExtResource("3_kmxop")
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800028339]
-zoom = Vector2(4, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
