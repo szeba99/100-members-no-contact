@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://v7nekrafjjr1"]
+
+[node name="Menu" type="Control" unique_id=1552408488]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1381603728]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1933326806]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1327532968]
+layout_mode = 2
+text = "BEYBLADE!!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1341774072]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1017300428]
+layout_mode = 2
+text = "Let it RIP"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=876020753]
+layout_mode = 2
+text = "Let it rip!"

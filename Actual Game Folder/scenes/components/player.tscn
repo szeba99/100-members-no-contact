@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://e1d03bbv2uh"]
+
+[ext_resource type="Script" uid="uid://bn5pltvin1n7e" path="res://Actual Game Folder/scripts/player.gd" id="1_7buym"]
+[ext_resource type="Texture2D" uid="uid://cme662o0ufeay" path="res://icon.svg" id="1_rbky7"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1516017166]
+script = ExtResource("1_7buym")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=661915652]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_rbky7")
