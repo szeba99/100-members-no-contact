@@ -21,10 +21,11 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="uid://djgtwyo1isqmg"
+buses/default_bus_layout="res://default_bus_layout.tres"
 
 [autoload]
 
+Globals="*uid://byw85re6utohf"
 AudioManager="*res://Actual Game Folder/scripts/autoload/audio_manager.gd"
 SceneManager="*res://Actual Game Folder/scripts/autoload/scene_manager.gd"
 
@@ -37,6 +38,9 @@ window/stretch/mode="canvas_items"
 project/assembly_name="100-members-no-contact"
 
 [global_group]
+
+items=""
+player=""
 
 interactable="Interactable objects"
 player=""
