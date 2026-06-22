@@ -7,6 +7,7 @@ var fire_wait = 0.11
 var flash_duration = 0.05
 var fire_timer = 0.0
 var flash_timer = 0.0
+var last_flash = 0
 var dadi: Node2D = null
 
 
@@ -83,7 +84,8 @@ func _process(delta: float) -> void:
 
 	# Flash
 	flash_timer = flash_duration
-	match (randi() % 3):
+	last_flash = (last_flash + 1 + randi() % 2) % 3
+	match (last_flash):
 		0:
 			$flash1.visible = true
 		1:
