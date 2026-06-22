@@ -43,7 +43,6 @@ items=""
 player=""
 
 interactable="Interactable objects"
-player=""
 
 [gui]
 
