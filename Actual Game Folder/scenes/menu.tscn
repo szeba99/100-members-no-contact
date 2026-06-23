@@ -1,28 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://v7nekrafjjr1"]
+[gd_scene format=3 uid="uid://v7nekrafjjr1"]
 
-[ext_resource type="Script" path="res://Actual Game Folder/scripts/menu_manager.gd" id="1_n3qwu"]
+[ext_resource type="Script" uid="uid://bobhxto3tu2p6" path="res://Actual Game Folder/scripts/menu_manager.gd" id="1_n3qwu"]
 [ext_resource type="Texture2D" uid="uid://bwucxqtoakuy6" path="res://Miscellanious Assets Dump/Image/backgrounds/background_blue_distortion_640x320.png" id="1_pvo6j"]
 [ext_resource type="AudioStream" uid="uid://dvb67gdm65wid" path="res://Miscellanious Assets Dump/Audio/sfx/button_hover.wav" id="2_vnj0c"]
 [ext_resource type="AudioStream" uid="uid://b5xyt6hpwoq1h" path="res://Miscellanious Assets Dump/Audio/sfx/button_press.wav" id="3_08yys"]
 [ext_resource type="AudioStream" uid="uid://bnss0855gpofg" path="res://Miscellanious Assets Dump/Audio/music/beyblades-battle.mp3" id="4_o0cgn"]
-[ext_resource type="Theme" uid="uid://3nsa0g2rvkqq" path="res://Actual Game Folder/themes/main_theme.tres" id="6_08yys"]
-[ext_resource type="FontFile" uid="uid://c8jqgftylm0j0" path="res://Miscellanious Assets Dump/Fonts/FasterOne-Regular.ttf" id="6_vnj0c"]
+[ext_resource type="Texture2D" uid="uid://bjal04fa8iuvq" path="res://Miscellanious Assets Dump/Image/Title screen/TITLE SCREEN.png" id="7_wg53l"]
+[ext_resource type="Texture2D" uid="uid://085rgu2jq1pl" path="res://Miscellanious Assets Dump/Image/Title screen/Story.png" id="8_4m5qw"]
+[ext_resource type="Texture2D" uid="uid://d2rrr2td5sn5m" path="res://Miscellanious Assets Dump/Image/Title screen/Rip.png" id="9_mpbnu"]
+[ext_resource type="Texture2D" uid="uid://dsr1iic0w0bki" path="res://Miscellanious Assets Dump/Image/Title screen/Quit.png" id="10_qqymo"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("start_button", "story_button", "exit_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg53l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6ehw"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m5qw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xjja"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpbnu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqymo"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[node name="Menu" type="Control" unique_id=360561653 node_paths=PackedStringArray("start_button", "story_button", "exit_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
 offset_right = 1151.0
 offset_bottom = 648.0
 script = ExtResource("1_n3qwu")
-start_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/LET IT RIP")
-story_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/STORY")
-exit_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/EXIT")
+start_button = NodePath("STORY")
+story_button = NodePath("LET IT RIP")
+exit_button = NodePath("EXIT")
 button_hover_stream = ExtResource("2_vnj0c")
 button_click_stream = ExtResource("3_08yys")
 music_stream = ExtResource("4_o0cgn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1549200194]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 641.0
@@ -30,39 +50,60 @@ offset_bottom = 360.0
 scale = Vector2(1.7996, 1.79831)
 texture = ExtResource("1_pvo6j")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="TitleScreen" type="Sprite2D" parent="." unique_id=208032660]
+position = Vector2(343, 241)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("7_wg53l")
+
+[node name="STORY" type="Button" parent="." unique_id=787360440]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-metadata/_edit_lock_ = true
-theme = ExtResource("6_08yys")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_vnj0c")
-theme_override_font_sizes/font_size = 64
-text = "BEYBLADE!!"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_left = 48.0
+offset_top = 462.0
+offset_right = 173.0
+offset_bottom = 508.0
 size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_wg53l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s6ehw")
 
-[node name="STORY" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="LET IT RIP" type="Button" parent="." unique_id=1499209421]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 520.0
+offset_right = 167.0
+offset_bottom = 553.0
 size_flags_horizontal = 4
-text = "STORY"
+theme_override_styles/normal = SubResource("StyleBoxFlat_4m5qw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xjja")
 
-[node name="LET IT RIP" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "LET IT RIP!"
+[node name="EXIT" type="Button" parent="." unique_id=1224249848]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 568.0
+offset_right = 115.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_mpbnu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qqymo")
 
-[node name="EXIT" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "EXIT"
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=82504784]
+layout_mode = 0
+offset_left = -161.0
+offset_top = 11.0
+offset_right = 837.0
+offset_bottom = 655.0
+mouse_filter = 2
+
+[node name="Story" type="Sprite2D" parent="CenterContainer" unique_id=1432909295]
+position = Vector2(290, 474)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_4m5qw")
+
+[node name="Rip" type="Sprite2D" parent="CenterContainer" unique_id=2112322566]
+position = Vector2(291, 530)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_mpbnu")
+
+[node name="Quit" type="Sprite2D" parent="CenterContainer" unique_id=546445882]
+position = Vector2(255, 578)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_qqymo")
