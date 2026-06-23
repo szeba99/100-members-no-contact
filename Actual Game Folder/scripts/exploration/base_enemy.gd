@@ -20,7 +20,8 @@ extends CharacterBody2D
 @export var voice_pitch: float = 0.0
 
 func _ready():
-	animator.play("idle_down")
+	if animator:
+		animator.play("idle_down")
 	
 func show_indicator():
 	if indicator:

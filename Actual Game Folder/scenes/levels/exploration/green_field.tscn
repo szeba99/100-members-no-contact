@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://vieumik3lhr0" path="res://Actual Game Folder/scenes/components/exploration/enemy.tscn" id="3_ef6mn"]
 [ext_resource type="PackedScene" uid="uid://d30cngbg0dh4v" path="res://Actual Game Folder/scenes/components/exploration/mechanic.tscn" id="4_2cuhp"]
 [ext_resource type="PackedScene" uid="uid://xv8it6luhbrs" path="res://Actual Game Folder/scenes/levels/exploration/door.tscn" id="5_6egli"]
+[ext_resource type="PackedScene" uid="uid://b4yhhc6om0vsq" path="res://Actual Game Folder/scenes/components/exploration/squirrel.tscn" id="7_ao2ok"]
+[ext_resource type="PackedScene" uid="uid://blg2e204oqwme" path="res://Actual Game Folder/scenes/components/exploration/lizard.tscn" id="8_muyyu"]
+[ext_resource type="PackedScene" uid="uid://cqjdtoavoh5wu" path="res://Actual Game Folder/scenes/components/exploration/seagull.tscn" id="9_e3i70"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ao2ok"]
 texture = ExtResource("1_smi17")
@@ -1007,9 +1010,18 @@ position = Vector2(1140, 858)
 scale = Vector2(1.2839894, 1.6752784)
 destination = 6
 
-[node name="HouseDoor" parent="." instance=ExtResource("5_6egli")]
+[node name="HouseDoor" parent="." unique_id=2134003745 instance=ExtResource("5_6egli")]
 position = Vector2(248, 22)
 mode = 2
+
+[node name="Li" parent="." unique_id=1533098224 instance=ExtResource("8_muyyu")]
+position = Vector2(460, 504)
+
+[node name="Squiro" parent="." unique_id=140667318 instance=ExtResource("7_ao2ok")]
+position = Vector2(845, 337)
+
+[node name="Seagull" parent="." unique_id=365002936 instance=ExtResource("9_e3i70")]
+position = Vector2(767, 671)
 
 [editable path="PlayerEx"]
 [editable path="PlayerEx/CharacterBody2D/Camera2D/DialogueBox"]

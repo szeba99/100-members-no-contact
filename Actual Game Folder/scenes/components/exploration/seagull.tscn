@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cqjdtoavoh5wu"]
+
+[ext_resource type="Script" uid="uid://b7w0j7vr6veqg" path="res://Actual Game Folder/scripts/exploration/seagull.gd" id="1_if8d7"]
+[ext_resource type="Script" uid="uid://b1h2f2iwtg0mn" path="res://Actual Game Folder/scripts/exploration/base_enemy.gd" id="1_oqbsf"]
+[ext_resource type="Texture2D" uid="uid://cpxwj4mbnd8s2" path="res://Miscellanious Assets Dump/Image/characters/random_characters.png" id="2_if8d7"]
+[ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="3_nllkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t0u"]
+size = Vector2(20, 16)
+
+[node name="Seagull" type="Node2D" unique_id=1533098224]
+script = ExtResource("1_if8d7")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1226606288 groups=["interactable"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_oqbsf")
+dialogue = Array[String](["Give.", "Give...", "giv?", "givgivgivgivgivgivgivgivgiv!!!!"])
+is_bad = false
+enemy_name = "Just Seagull"
+voice_pitch = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=546804820]
+texture = ExtResource("2_if8d7")
+region_enabled = true
+region_rect = Rect2(36, 5, 19, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=935171574]
+position = Vector2(0, -7.947286e-08)
+shape = SubResource("RectangleShape2D_y7t0u")
+
+[node name="Indicator" type="Label" parent="CharacterBody2D" unique_id=443099275]
+visible = false
+offset_left = -38.0
+offset_top = -23.333332
+offset_right = 40.0
+offset_bottom = -11.333332
+theme_override_fonts/font = ExtResource("3_nllkq")
+theme_override_font_sizes/font_size = 10
+text = "Maybe Press E..."
