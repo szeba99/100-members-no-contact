@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b4yhhc6om0vsq"]
+
+[ext_resource type="Script" uid="uid://b1h2f2iwtg0mn" path="res://Actual Game Folder/scripts/exploration/base_enemy.gd" id="1_ilpgj"]
+[ext_resource type="Texture2D" uid="uid://cpxwj4mbnd8s2" path="res://Miscellanious Assets Dump/Image/characters/random_characters.png" id="2_ilpgj"]
+[ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="3_hu3uv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t0u"]
+size = Vector2(22.666668, 20.333332)
+
+[node name="Squiro" type="Node2D" unique_id=1533098224]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1226606288 groups=["interactable"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ilpgj")
+dialogue = Array[String](["bey-what?", "I just work here man..."])
+is_bad = false
+enemy_name = "Squiro the Worker"
+voice_pitch = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=546804820]
+texture = ExtResource("2_ilpgj")
+region_enabled = true
+region_rect = Rect2(0, 0, 21, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=935171574]
+position = Vector2(4.7683716e-07, -0.16666684)
+shape = SubResource("RectangleShape2D_y7t0u")
+
+[node name="Indicator" type="Label" parent="CharacterBody2D" unique_id=443099275]
+visible = false
+offset_left = -17.3333
+offset_top = -23.3333
+offset_right = 17.6667
+offset_bottom = -11.3333
+theme_override_fonts/font = ExtResource("3_hu3uv")
+theme_override_font_sizes/font_size = 10
+text = "Press E"

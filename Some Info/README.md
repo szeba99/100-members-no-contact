@@ -20,6 +20,11 @@ We're making a Beyblade roguelike/metroidvania deckbuilder RPG (Or Beyblade buil
 * assorted beyblades by goofanader
   * https://goofanader.itch.io or https://ko-fi.com/goofanader
 
+* vofy (https://vofy.itch.io/ or https://github.com/kbhau)
+  * ak47.png
+  * beyblades-battle.mp3
+  * random_characters.png
+
 ## External Assets
 
 * add files/credits here for assets you downloaded and have rights to use (if you don't have the rights, don't use it)

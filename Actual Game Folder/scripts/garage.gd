@@ -19,9 +19,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_leave_pressed() -> void:
-	#I did not understand how you make it so you can enter and leave on the same spot, so 
-	#for now i am just using the change scene func
-	SceneManager.change_screen(SceneManager.SceneKey.GREEN_FIELD) # Replace with function body.
+	SceneManager.pop_scene()
 
 # makes the mechanic animated sprite2d change to show the smiling frame (not working yet)
 #func shopkeep_smile():

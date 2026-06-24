@@ -5,24 +5,102 @@
 [ext_resource type="AudioStream" uid="uid://dvb67gdm65wid" path="res://Miscellanious Assets Dump/Audio/sfx/button_hover.wav" id="2_vnj0c"]
 [ext_resource type="AudioStream" uid="uid://b5xyt6hpwoq1h" path="res://Miscellanious Assets Dump/Audio/sfx/button_press.wav" id="3_08yys"]
 [ext_resource type="AudioStream" uid="uid://bnss0855gpofg" path="res://Miscellanious Assets Dump/Audio/music/beyblades-battle.mp3" id="4_o0cgn"]
-[ext_resource type="Theme" uid="uid://3nsa0g2rvkqq" path="res://Actual Game Folder/themes/main_theme.tres" id="6_08yys"]
-[ext_resource type="FontFile" uid="uid://c8jqgftylm0j0" path="res://Miscellanious Assets Dump/Fonts/FasterOne-Regular.ttf" id="6_vnj0c"]
+[ext_resource type="FontFile" uid="uid://c8jqgftylm0j0" path="res://Miscellanious Assets Dump/Fonts/FasterOne-Regular.ttf" id="7_4m5qw"]
+[ext_resource type="Texture2D" uid="uid://bjal04fa8iuvq" path="res://Miscellanious Assets Dump/Image/Title screen/TITLE SCREEN.png" id="7_wg53l"]
+[ext_resource type="Texture2D" uid="uid://te8s0xvm3gvg" path="res://Miscellanious Assets Dump/Image/Title screen/Endless Mode.png" id="8_tdn6d"]
+[ext_resource type="Texture2D" uid="uid://cej1hx2kl6ct6" path="res://Miscellanious Assets Dump/Image/Title screen/Settings icon.png" id="9_bkt1e"]
+[ext_resource type="Texture2D" uid="uid://rox7vko7cfj6" path="res://Miscellanious Assets Dump/Image/Title screen/Rip.png" id="9_mpbnu"]
+[ext_resource type="Texture2D" uid="uid://b4cbp0u35e566" path="res://Miscellanious Assets Dump/Image/Title screen/Grabber_beyblade.png" id="10_4m5qw"]
+[ext_resource type="Texture2D" uid="uid://hs2box2ysjnk" path="res://Miscellanious Assets Dump/Image/beyblades/pixelart/Blade1.png" id="10_wg53l"]
 
 [node name="Menu" type="Control" unique_id=2145338822 node_paths=PackedStringArray("start_button", "story_button", "exit_button")]
+[sub_resource type="Gradient" id="Gradient_mpbnu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.13725491, 0.16470589, 0.34117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qqymo"]
+gradient = SubResource("Gradient_mpbnu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg53l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6ehw"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m5qw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xjja"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpbnu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqymo"]
+bg_color = Color(0.47058824, 0.7294118, 0.9254902, 0.5686275)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bkt1e"]
+load_path = "res://.godot/imported/Quit.png-875c259704bbad5723bbfe0e99cdd8eb.ctex"
+
+[sub_resource type="FontFile" id="FontFile_bkt1e"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkt1e"]
+bg_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 0.8627451)
+border_width_top = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf03y"]
+bg_color = Color(0.9999997, 0.13183689, 0.2229467, 1)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qga3b"]
+bg_color = Color(1, 0.13333334, 0.22352941, 1)
+
+[node name="Menu" type="Control" unique_id=360561653 node_paths=PackedStringArray("start_button", "endless_button", "exit_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
 offset_right = 1151.0
 offset_bottom = 648.0
 script = ExtResource("1_n3qwu")
-start_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/LET IT RIP")
-story_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/STORY")
-exit_button = NodePath("CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer/EXIT")
+start_button = NodePath("LET IT RIP")
+endless_button = NodePath("ENDLESS MODE")
+exit_button = NodePath("EXIT")
 button_hover_stream = ExtResource("2_vnj0c")
 button_click_stream = ExtResource("3_08yys")
 music_stream = ExtResource("4_o0cgn")
+Audio_bus_name = "music"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=389454478]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1549200194]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 641.0
@@ -38,7 +116,27 @@ theme = ExtResource("6_08yys")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1120133730]
+[node name="TitleScreen" type="Sprite2D" parent="." unique_id=208032660]
+position = Vector2(425, 239.99998)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("7_wg53l")
+
+[node name="Censorship" type="MarginContainer" parent="." unique_id=1077999811]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 162.0
+offset_right = 88.0
+offset_bottom = 202.0
+scale = Vector2(7.35341, 2.4868755)
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Censorship" unique_id=1217942055]
 layout_mode = 2
+texture = SubResource("GradientTexture2D_qqymo")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1380871755]
 layout_mode = 2
@@ -51,12 +149,50 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=676290469]
 layout_mode = 2
+[node name="Label" type="Label" parent="." unique_id=1686865195]
+layout_mode = 0
+offset_left = 352.00003
+offset_top = 267.0
+offset_right = 572.0
+offset_bottom = 287.0
+scale = Vector2(1.0074733, 1)
+text = "(We don't want to be sued)"
+
+[node name="SPIN" type="Label" parent="." unique_id=1728975951]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 113.0
+offset_right = 666.0
+offset_bottom = 542.0
+scale = Vector2(0.43679997, 0.8)
+theme_override_colors/font_color = Color(1, 0.16862746, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 21
+theme_override_fonts/font = ExtResource("7_4m5qw")
+theme_override_font_sizes/font_size = 200
+text = "SPIN"
+
+[node name="LET IT RIP" type="Button" parent="." unique_id=787360440]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 453.0
+offset_right = 273.0
+offset_bottom = 499.0
 size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_wg53l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s6ehw")
 
 [node name="STORY" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=441049198]
 layout_mode = 2
+[node name="ENDLESS MODE" type="Button" parent="." unique_id=1499209421]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 520.0
+offset_right = 249.0
+offset_bottom = 553.0
 size_flags_horizontal = 4
-text = "STORY"
+theme_override_styles/normal = SubResource("StyleBoxFlat_4m5qw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xjja")
 
 [node name="LET IT RIP" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=568880971]
 layout_mode = 2
@@ -66,3 +202,85 @@ text = "LET IT RIP!"
 [node name="EXIT" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1157087857]
 layout_mode = 2
 text = "EXIT"
+[node name="EXIT" type="Button" parent="." unique_id=1224249848]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 576.0
+offset_right = 114.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_mpbnu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qqymo")
+
+[node name="SETTINGS" type="Button" parent="." unique_id=2097706810]
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 18.0
+offset_right = 1126.0
+offset_bottom = 82.0
+
+[node name="Quit" type="Sprite2D" parent="." unique_id=546445882]
+position = Vector2(94.000015, 596)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("CompressedTexture2D_bkt1e")
+
+[node name="EndlessMode" type="Sprite2D" parent="." unique_id=1754867177]
+position = Vector2(207, 565)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_tdn6d")
+
+[node name="SettingsIcon" type="Sprite2D" parent="." unique_id=557528416]
+position = Vector2(1093, 52.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bkt1e")
+
+[node name="Rip" type="Sprite2D" parent="." unique_id=1875013898]
+position = Vector2(284, 522)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_mpbnu")
+
+[node name="Settings" type="Panel" parent="." unique_id=1076750093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 822.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Settings" unique_id=364379985]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 182.0
+offset_right = 82.0
+offset_bottom = 202.0
+text = "Music"
+
+[node name="Close_options" type="Button" parent="Settings" unique_id=1288473908]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 553.0
+offset_right = 143.0
+offset_bottom = 603.0
+theme_override_fonts/font = SubResource("FontFile_bkt1e")
+theme_override_font_sizes/font_size = 19
+text = "Close"
+
+[node name="Music" type="HSlider" parent="Settings" unique_id=1109252983]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 160.0
+offset_right = 256.0
+offset_bottom = 224.0
+theme_override_icons/grabber = ExtResource("10_4m5qw")
+theme_override_icons/grabber_highlight = ExtResource("10_wg53l")
+theme_override_styles/slider = SubResource("StyleBoxFlat_bkt1e")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_wf03y")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qga3b")
+max_value = 1.0
+step = 0.005
+value = 1.0
+
+[connection signal="pressed" from="SETTINGS" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings/Close_options" to="." method="_on_close_options_pressed"]
+[connection signal="value_changed" from="Settings/Music" to="." method="_on_music_value_changed"]

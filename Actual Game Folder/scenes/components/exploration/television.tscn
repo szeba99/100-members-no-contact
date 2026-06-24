@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dq4lpjpb86ee5"]
+
+[ext_resource type="Script" uid="uid://ck11jm4d1c5vr" path="res://Actual Game Folder/scripts/exploration/television.gd" id="1_4uahs"]
+[ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="2_4e38h"]
+[ext_resource type="Texture2D" uid="uid://cuhchq7c633pu" path="res://Miscellanious Assets Dump/Image/TV-anime-fight.png" id="3_4e38h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkup3"]
+size = Vector2(34, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gy8q"]
+atlas = ExtResource("3_4e38h")
+region = Rect2(0, 0, 34, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1l4d"]
+atlas = ExtResource("3_4e38h")
+region = Rect2(34, 0, 34, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfun4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gy8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1l4d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Television" type="Node2D" unique_id=1917266711 groups=["interactable"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1500952215 groups=["interactable"]]
+script = ExtResource("1_4uahs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1987916004]
+position = Vector2(7.5, 3)
+shape = SubResource("RectangleShape2D_pkup3")
+
+[node name="Indicator" type="Label" parent="CharacterBody2D" unique_id=2021286287]
+visible = false
+offset_left = -10.0
+offset_top = -21.0
+offset_right = 25.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("2_4e38h")
+theme_override_font_sizes/font_size = 10
+text = "Press E"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1686201453]
+position = Vector2(7.5, 3)
+sprite_frames = SubResource("SpriteFrames_bfun4")
+autoplay = "default"
+frame_progress = 0.8773364
