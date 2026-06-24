@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://3kgqfmuodmbv"]
 
-[ext_resource type="PackedScene" uid="uid://cce2fbfh6tc64" path="res://Actual Game Folder/scenes/items.tscn" id="1_2knxh"]
 [ext_resource type="Script" uid="uid://bdwlkj50onpn6" path="res://Actual Game Folder/scripts/ui/shop_item_preview.gd" id="1_kfwnh"]
-[ext_resource type="Texture2D" uid="uid://dwmuxqubqjmje" path="res://Miscellanious Assets Dump/Image/sample_beyblade.png" id="2_kfwnh"]
 [ext_resource type="Texture2D" uid="uid://do8u8vjmjis3f" path="res://Actual Game Folder/sprites/items/beyblade garage wrapper.png" id="2_wnu06"]
 [ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="3_kfwnh"]
 
@@ -24,11 +22,6 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 105.0
 offset_bottom = 100.0
-
-[node name="item" parent="ItemContainer" unique_id=730989761 instance=ExtResource("1_2knxh")]
-position = Vector2(49.999996, 48)
-scale = Vector2(0.32, 0.32)
-item_texture = ExtResource("2_kfwnh")
 
 [node name="wrapper" type="TextureRect" parent="." unique_id=1924794381]
 layout_mode = 0
@@ -74,3 +67,5 @@ offset_right = 113.0
 offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("3_kfwnh")
 text = "buy"
+
+[connection signal="pressed" from="buy button" to="." method="_on_buy_button_pressed"]

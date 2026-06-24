@@ -123,12 +123,15 @@ var _boss_bar: ProgressBar
 var _gameover_label: Label
 var _victory_label: Label
 
+## item system integration
+var items: ItemHandler 
+@onready var item_handler: ItemHandler = $item_handler
+
+
 func _ready() -> void:
 	# this is necessary for _on_body_entered, 1 is technically enough for just the player but with multiple bayblades we might need to increase this value.
 	max_contacts_reported = 5
-	# needed for inventory system integration, sets the reference for the player using a global function
-	Globals.player_reference(self)
-	SceneManager.player_beyblade = self
+
 
 	max_contacts_reported = 16
 
@@ -136,6 +139,9 @@ func _ready() -> void:
 	_setup_spin_blur()
 	_setup_hud()
 	_play_spawn_intro()
+	
+	
+
 
 func _play_spawn_intro() -> void:
 	_launching = true
@@ -158,6 +164,10 @@ func _on_spawn_intro_done() -> void:
 	freeze = false
 	_launching = false
 	AudioManager.play_sfx(collision_sfx_stream, global_position)
+	
+	## start of battle item activation
+	#items.item_activated.connect(on_item_activation)
+	#items.activate_items_by_type(Item.Type.START_OF_BATTLE)
 
 
 func _exit_tree() -> void:
@@ -515,7 +525,11 @@ func _win() -> void:
 	_boss_bar.visible = false
 	_victory_label.visible = true
 	_clear_horde()
+	
 	get_tree().create_timer(2.0).timeout.connect(SceneManager.end_battle)
+	
+	# end of combat item activation
+	#items.activate_items_by_type(Item.Type.END_OF_BATTLE)
 
 func _stop_spawners() -> void:
 	for s in get_tree().get_nodes_in_group("enemy_spawner"):
@@ -673,3 +687,14 @@ func _update_boss_ui() -> void:
 	elif _boss_seen:
 		_objective_label.visible = false
 		_boss_bar.visible = false
+
+
+## item effects
+func on_item_activation(type: Item.Type) -> void:
+	match type:
+		Item.Type.START_OF_BATTLE:
+			pass
+		Item.Type.END_OF_BATTLE:
+			pass
+		Item.Type.CONSUMABLE:
+			pass

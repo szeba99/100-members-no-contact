@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bn7qx1cenq5v6"]
+
+[ext_resource type="Texture2D" uid="uid://cme662o0ufeay" path="res://icon.svg" id="1_eruo7"]
+[ext_resource type="Script" uid="uid://p3jeo16bu34u" path="res://Actual Game Folder/scenes/custom resources/item_effect_system.gd" id="1_erv5t"]
+
+[resource]
+script = ExtResource("1_erv5t")
+item_name = "example item 1"
+id = "example_1"
+icon = ExtResource("1_eruo7")
+tooltip = "this item has a tooltip, triggers at the start of battle"
+metadata/_custom_type_script = "uid://p3jeo16bu34u"

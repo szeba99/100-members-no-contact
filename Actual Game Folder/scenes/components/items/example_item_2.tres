@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://4t8nqyh0c7q6"]
+
+[ext_resource type="Texture2D" uid="uid://dypgmhk8mr17" path="res://Miscellanious Assets Dump/Image/rip_berkant77.png" id="1_smnub"]
+[ext_resource type="Script" uid="uid://p3jeo16bu34u" path="res://Actual Game Folder/scenes/custom resources/item_effect_system.gd" id="1_u2ilb"]
+
+[resource]
+script = ExtResource("1_u2ilb")
+item_name = "example item 2"
+id = "example_2"
+type = 3
+icon = ExtResource("1_smnub")
+tooltip = "example item 2, does nothing yet
+"
+metadata/_custom_type_script = "uid://p3jeo16bu34u"

@@ -5,10 +5,12 @@ extends Node2D
 #Currently the shop does nothing its only an extra scene
 
 #var purchase_made := true
+var items : ItemHandler
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+	#items.activate_items_by_type(Item.Type.EVENT)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

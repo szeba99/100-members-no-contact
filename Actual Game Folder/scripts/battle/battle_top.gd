@@ -56,6 +56,7 @@ func _on_enemy_killed(enemy: Node) -> void:
 
 func collect_coin(value: int) -> void:
 	_coins += value
+	Globals.coin_total += value
 	_refresh_coins()
 
 func _build_coin_hud() -> void:
