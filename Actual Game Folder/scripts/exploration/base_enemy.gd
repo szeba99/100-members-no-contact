@@ -6,9 +6,7 @@ extends CharacterBody2D
 #Soon!
 @export_multiline var dialogue: Array[String] = [
 	"YOU!!! Come here!!!!", 
-	"WOAH, You are using comic SANS?!", 
-	"NICE", 
-	"LET'S FIGHT!!!"
+	"WOAH, You are using comic SANS?!"
 	]
 	
 @export var is_bad: bool = true
