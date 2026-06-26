@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var indicator: Label = $Indicator
 
 @export_multiline var dialogue: Array[String] = [
-	"Message", "-Your Name"
+	"We are not communicating so well", "-Cube512"
 ]
 
 @export var is_pickup: bool = false

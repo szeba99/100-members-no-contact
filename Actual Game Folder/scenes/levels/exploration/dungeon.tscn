@@ -1401,7 +1401,7 @@ position = Vector2(1591, 520)
 
 [node name="CharacterBody2D" parent="Enemy2" index="0"]
 z_index = 2
-dialogue = Array[String](["Man...", "I'm so sad :c"])
+dialogue = Array[String](["Man...", "I'm so sad :c", "My wife left me and now I'm stuck here as an npc to battle you..."])
 reward = "none"
 post_defeat_dialogue = Array[String](["That we all look the same?", "...", "Idk man"])
 enemy_id = "gf_bird_33"
@@ -1491,7 +1491,7 @@ dialogue = Array[String](["here lays Deadspacerx120 (Jay)"])
 
 [node name="Cube512" parent="TOMBS" unique_id=1270769353 instance=ExtResource("8_umxla")]
 position = Vector2(-991, -212)
-dialogue = Array[String](["here lays Cube512"])
+dialogue = Array[String](["here lays Cube512", "(died while trying to compose theme songs for all levels)"])
 
 [node name="CheeseB0y" parent="TOMBS" unique_id=614405035 instance=ExtResource("8_umxla")]
 position = Vector2(-988, -108)
