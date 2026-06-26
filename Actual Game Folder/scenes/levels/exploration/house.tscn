@@ -646,9 +646,6 @@ physics_quadrant_size = 32
 position = Vector2(100, 212)
 texture = ExtResource("3_acmel")
 
-[node name="PlayerEx" parent="." unique_id=2130211876 instance=ExtResource("3_ac8e4")]
-position = Vector2(209, 40)
-
 [node name="Door" parent="." unique_id=433099157 instance=ExtResource("4_mk0ui")]
 position = Vector2(184, 369)
 mode = 1
@@ -666,7 +663,7 @@ position = Vector2(7, 2)
 [node name="AnimatedSprite2D" parent="Television/CharacterBody2D" parent_id_path=PackedInt32Array(1917266711, 1500952215) index="2" unique_id=1686201453]
 position = Vector2(7, 2)
 
-[node name="PlayerEx" parent="." unique_id=2130211876 instance=ExtResource("3_ac8e4")]
+[node name="PlayerEx" parent="." unique_id=598382722 instance=ExtResource("3_ac8e4")]
 position = Vector2(97, 53)
 
 [editable path="Television"]
