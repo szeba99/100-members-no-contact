@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c8kf07hua6n5i"]
+
+[ext_resource type="Script" uid="uid://dudqvvl0vmmnl" path="res://Actual Game Folder/scripts/exploration/cracked_wall.gd" id="1_crwall"]
+[ext_resource type="Texture2D" uid="uid://clofnffjtdyqq" path="res://Miscellanious Assets Dump/Image/minnesota.png" id="2_minn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crwall"]
+size = Vector2(64, 64)
+
+[node name="CrackedWall" type="StaticBody2D" unique_id=1606934323]
+script = ExtResource("1_crwall")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=765129684]
+texture = ExtResource("2_minn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1495739556]
+shape = SubResource("RectangleShape2D_crwall")
+
+[node name="Indicator" type="Label" parent="." unique_id=1760409773]
+visible = false
+offset_left = -16.0
+offset_top = -54.0
+offset_right = 16.0
+offset_bottom = -38.0
+theme_override_font_sizes/font_size = 12
+text = "E"
+horizontal_alignment = 1

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c6860iad8dtsb"]
+
+[ext_resource type="Script" uid="uid://b1h2f2iwtg0mn" path="res://Actual Game Folder/scripts/exploration/base_enemy.gd" id="1_7682d"]
+[ext_resource type="Texture2D" uid="uid://dypgmhk8mr17" path="res://Miscellanious Assets Dump/Image/rip_berkant77.png" id="2_ysfk3"]
+[ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="3_fkqe3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyepi"]
+size = Vector2(50.66667, 55.333336)
+
+[node name="Grave" type="Node2D" unique_id=483528663]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=328575819 groups=["interactable"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_7682d")
+dialogue = Array[String](["In memory of the lost ones...", "Fly high my friend..."])
+is_bad = false
+enemy_name = "Squiro the Worker"
+voice_pitch = 0.4
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D" unique_id=2065756663]
+texture = ExtResource("2_ysfk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=168943865]
+position = Vector2(0, -1.6666679)
+shape = SubResource("RectangleShape2D_lyepi")
+
+[node name="Indicator" type="Label" parent="CharacterBody2D" unique_id=615637060]
+visible = false
+offset_left = -17.3333
+offset_top = -40.0
+offset_right = 17.6667
+offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("3_fkqe3")
+theme_override_font_sizes/font_size = 10
+text = "Press E"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnss0855gpofg"
+path="res://.godot/imported/spinblades-battle.mp3-daec5bcd943c5ddec31b77d4f6762336.mp3str"
+
+[deps]
+
+source_file="res://Miscellanious Assets Dump/Audio/music/spinblades-battle.mp3"
+dest_files=["res://.godot/imported/spinblades-battle.mp3-daec5bcd943c5ddec31b77d4f6762336.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

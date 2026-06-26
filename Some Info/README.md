@@ -20,6 +20,11 @@ We're making a Beyblade roguelike/metroidvania deckbuilder RPG (Or Beyblade buil
 * assorted beyblades by goofanader
   * https://goofanader.itch.io or https://ko-fi.com/goofanader
 
+* vofy (https://vofy.itch.io/ or https://github.com/kbhau)
+  * ak47.png
+  * spinblades-battle.mp3
+  * random_characters.png
+
 ## External Assets
 
 * add files/credits here for assets you downloaded and have rights to use (if you don't have the rights, don't use it)
@@ -35,3 +40,23 @@ We're making a Beyblade roguelike/metroidvania deckbuilder RPG (Or Beyblade buil
 
   * https://wavstock.com/sound/25072/
   * Royalty-Free License
+
+* Racoon and Bird
+
+	* https://pixelfight.itch.io/birdcat
+	* CC0
+	
+* Pixel art top down basics
+
+	* https://cainos.itch.io/pixel-art-top-down-basic
+	* CC0
+	
+* Basic Caves & Dungeons Tileset 32x32 Pixels
+
+	* https://schwarnhild.itch.io/basic-caves-and-dungeons-tileset-32x32-pixels
+	* Royalty-Free Commercial License with Attribution
+	
+* House Interior
+
+	* https://graduation-cat.itch.io/house-interior-tileset-32x32
+	* Tier-Based Commercial License

@@ -33,6 +33,8 @@ const _SCENES_MAP: Dictionary = {
 
 var current_scene
 var battle_context: Dictionary = {}
+var _battle_active: bool = false
+var pending_reward_dialogue: Array[String] = []
 var player_beyblade: Node2D = null
 var bullet_container: Node2D = null
 
@@ -68,27 +70,100 @@ func enter_battle(context: Dictionary = {}) -> void:
 	call_deferred("_enter_battle_now", context)
 
 func _enter_battle_now(context: Dictionary) -> void:
+	await Transition.cover()
+
 	battle_context = context
 	if current_scene:
 		_set_suspended(current_scene, true)
 		_suspended.push_back(current_scene)
-		
+
 		if current_scene.get_parent() == _WORLD_NODE:
 			_WORLD_NODE.remove_child(current_scene)
-			
+
 	current_scene = _mount(SceneKey.GAMEPLAY)
-	AudioManager.play_music_stream(preload("res://Miscellanious Assets Dump/Audio/music/beyblades-battle.mp3"))
+	_battle_active = true
+	AudioManager.crossfade_music(preload("res://Miscellanious Assets Dump/Audio/music/spinblades-battle.mp3"))
+
+	await Transition.reveal()
 
 func end_battle() -> void:
-	if current_scene:
-		current_scene.queue_free()
-	current_scene = _suspended.pop_back() if not _suspended.is_empty() else null
-	if current_scene:
+	# the win timer and the EndBattle button both fire this; only honor the first
+	if not _battle_active:
+		return
+	_battle_active = false
+
+	await Transition.cover()
+
+	var returning = _suspended.pop_back() if not _suspended.is_empty() else null
+	if returning:
+		if current_scene:
+			current_scene.queue_free()
+		current_scene = returning
 		if current_scene.get_parent() == null:
 			_WORLD_NODE.add_child(current_scene)
-			
+
 		_set_suspended(current_scene, false)
-	AudioManager.stop_music()
+		get_tree().call_group("overworld_player", "_on_return_from_battle")
+		AudioManager.fade_out_music()
+	else:
+		# nothing was suspended to return to (battle entered outside the overworld)
+		_refresh_world_node()
+		if _WORLD_NODE != null:
+			for child in _WORLD_NODE.get_children():
+				if is_instance_valid(child):
+					_WORLD_NODE.remove_child(child)
+					child.queue_free()
+		current_scene = _mount(SceneKey.MENU)
+
+	await Transition.reveal()
+
+func report_battle_won() -> void:
+	var reward := str(battle_context.get("reward", ""))
+	match reward:
+		"spin_dash":
+			Globals.spin_dash = true
+			pending_reward_dialogue = [
+				"Uff da... ya really beat me, eh.",
+				"A deal's a deal. Here ya go — the SPIN-DASH, like I promised, you betcha.",
+				"Press Space while yer movin' to bust clean through a wall.",
+				"Head east — there's a stack of Minnesotas wallin' off the garage. Crack 'em open and go bug the mechanic, bud."
+			]
+
+func take_reward_dialogue() -> Array[String]:
+	var lines := pending_reward_dialogue
+	pending_reward_dialogue = []
+	return lines
+
+func push_scene(scene_name: SceneKey) -> void:
+	# tree edits are illegal mid physics callback (mechanic body_entered), so defer
+	call_deferred("_push_scene_now", scene_name)
+
+func _push_scene_now(scene_name: SceneKey) -> void:
+	if current_scene:
+		_set_suspended(current_scene, true)
+		_suspended.push_back(current_scene)
+		if current_scene.get_parent() == _WORLD_NODE:
+			_WORLD_NODE.remove_child(current_scene)
+
+	current_scene = _mount(scene_name)
+
+func pop_scene() -> void:
+	call_deferred("_pop_scene_now")
+
+func _pop_scene_now() -> void:
+	var returning = _suspended.pop_back() if not _suspended.is_empty() else null
+	if returning == null:
+		# nothing to resume; fall back to a fresh overworld
+		_change_screen_now(SceneKey.GREEN_FIELD)
+		return
+
+	if current_scene:
+		current_scene.queue_free()
+	current_scene = returning
+	if current_scene.get_parent() == null:
+		_WORLD_NODE.add_child(current_scene)
+
+	_set_suspended(current_scene, false)
 
 func _mount(scene_name: SceneKey) -> Node:
 	if _WORLD_NODE == null or not is_instance_valid(_WORLD_NODE):

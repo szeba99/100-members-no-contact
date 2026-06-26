@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bssqvkylmoitv" path="res://Actual Game Folder/sprites/characters/Racoon_32x32.png" id="2_amyne"]
 [ext_resource type="PackedScene" uid="uid://crxweoeu82b5b" path="res://Actual Game Folder/scenes/components/exploration/dialog_box.tscn" id="3_5cf5f"]
 [ext_resource type="Texture2D" uid="uid://dn4q7n5pt8ktp" path="res://Actual Game Folder/sprites/characters/rolling.png" id="3_5vtx8"]
+[ext_resource type="Texture2D" uid="uid://b7ipssn7qv5cv" path="res://Miscellanious Assets Dump/Image/AreaSign.png" id="5_1k1vv"]
 [ext_resource type="AudioStream" uid="uid://rfavnlat2hw2" path="res://Miscellanious Assets Dump/Audio/sfx/vine-boom.wav" id="5_6oa3t"]
+[ext_resource type="AudioStream" uid="uid://bs8hb1vkqt5m5" path="res://Miscellanious Assets Dump/Audio/sfx/text_blip.wav" id="6_blip"]
+[ext_resource type="FontFile" uid="uid://dv0dl3euktrdp" path="res://Miscellanious Assets Dump/Fonts/COMIC-SANS.otf" id="6_pkh13"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4cep"]
 atlas = ExtResource("2_amyne")
@@ -434,7 +437,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bir22"]
-size = Vector2(16, 21)
+size = Vector2(16, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnv23"]
 radius = 22.3557
@@ -450,7 +453,7 @@ sprite_frames = SubResource("SpriteFrames_ro5rq")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=639723940]
-position = Vector2(0, 1.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_bir22")
 
 [node name="InteractionDetector" type="Area2D" parent="CharacterBody2D" unique_id=779113692]
@@ -458,6 +461,56 @@ shape = SubResource("RectangleShape2D_bir22")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/InteractionDetector" unique_id=705905472]
 position = Vector2(-0.333334, 1)
 shape = SubResource("CircleShape2D_tnv23")
+
+[node name="AreaSign" type="TextureRect" parent="CharacterBody2D" unique_id=886307369]
+z_index = 100
+offset_left = 56.667004
+offset_top = -155.757
+offset_right = 153.66705
+offset_bottom = -88.757
+texture = ExtResource("5_1k1vv")
+
+[node name="GreenFields" type="Label" parent="CharacterBody2D/AreaSign" unique_id=1651689717]
+visible = false
+layout_mode = 0
+offset_left = 3.333334
+offset_top = 28.666666
+offset_right = 95.333336
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.36665484, 0.21005744, 0.13558593, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_pkh13")
+text = "Green fields"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Dungeon" type="Label" parent="CharacterBody2D/AreaSign" unique_id=453888436]
+visible = false
+layout_mode = 0
+offset_left = 2.6663322
+offset_top = 36.423668
+offset_right = 94.666336
+offset_bottom = 55.090332
+theme_override_colors/font_color = Color(0.36665484, 0.21005744, 0.13558593, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_pkh13")
+text = "Dungeon"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SpaceShip" type="Label" parent="CharacterBody2D/AreaSign" unique_id=1423791909]
+visible = false
+layout_mode = 0
+offset_left = 2.6663296
+offset_top = 35.756996
+offset_right = 94.66633
+offset_bottom = 54.42366
+theme_override_colors/font_color = Color(0.36665484, 0.21005744, 0.13558593, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_pkh13")
+text = "Spaceship"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=162283039]
 zoom = Vector2(2.5, 2.5)
@@ -472,5 +525,10 @@ visible = true
 
 [node name="RollSound" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1010102228]
 stream = ExtResource("5_6oa3t")
+
+[node name="DialogBlip" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1010102229]
+stream = ExtResource("6_blip")
+volume_db = -26.0
+bus = &"sfx"
 
 [editable path="CharacterBody2D/Camera2D/DialogueBox"]

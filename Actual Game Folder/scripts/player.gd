@@ -16,7 +16,7 @@ const SPIN_BLUR_SHADER = preload("res://Actual Game Folder/shaders/spin_blur.gds
 
 
 @export_category("Statistics")
-@export var starting_spin_velocity:float = 80 # full stamina == spin_cap, then it winds down
+@export var starting_spin_velocity: float = 80 # full stamina == spin_cap, then it winds down
 @export var spin_velocity_drop_on_collision: float = 1
 @export var spin_velocity_drop_over_time: float = 1.5
 @export var collision_shake_trauma: float = 0.3
@@ -24,30 +24,30 @@ const SPIN_BLUR_SHADER = preload("res://Actual Game Folder/shaders/spin_blur.gds
 @export var spin_cap: float = 80.0
 
 @export_category("Handling")
-@export var drive_force: float = 2400.0      # lower = heavier wind-up
-@export var low_spin_control: float = 0.65   # steering authority at spin_floor (0..1)
-@export var grip: float = 3.5                # lower = wider, driftier corners
-@export var min_top_speed: float = 520.0     # speed ceiling at spin_floor
-@export var max_top_speed: float = 850.0     # speed ceiling at spin_cap
+@export var drive_force: float = 2400.0 # lower = heavier wind-up
+@export var low_spin_control: float = 0.65 # steering authority at spin_floor (0..1)
+@export var grip: float = 3.5 # lower = wider, driftier corners
+@export var min_top_speed: float = 520.0 # speed ceiling at spin_floor
+@export var max_top_speed: float = 850.0 # speed ceiling at spin_cap
 @export var wobble_amplitude: float = 3.5
 @export var wobble_speed: float = 26.0
 
 # to control item interaction ui visibility
-@onready var interact_UI = $"../UI/item interaction ui/ColorRect"
+@onready var interact_UI = get_node_or_null("../UI/item interaction ui/ColorRect")
 @export_category("Wall Bounce")
 @export var ricochet_boost: float = 1.4
 @export var ricochet_min_speed: float = 120.0 # below this it's a soft tap, no boost
 @export var ricochet_max_speed: float = 1500.0 # hard cap so corner-pinging can't run away
-@export var ricochet_lockout: float = 0.18     # how long the bounce rides free of cap and grip
+@export var ricochet_lockout: float = 0.18 # how long the bounce rides free of cap and grip
 # precession/idle_wander fight your input, so they default off; nonzero for beyblade-y drift
 @export var precession: float = 0.0
-@export var precession_sign: float = 1.0     # +1 / -1 to match the blade's spin direction
+@export var precession_sign: float = 1.0 # +1 / -1 to match the blade's spin direction
 @export var idle_wander: float = 0.0
 @export var idle_wander_speed: float = 1.4
 
 @export_category("Resources")
-@export var launch_sfx_stream : AudioStream
-@export var collision_sfx_stream : AudioStream
+@export var launch_sfx_stream: AudioStream
+@export var collision_sfx_stream: AudioStream
 
 @export_category("Survival")
 @export var max_health: float = 100.0
@@ -101,6 +101,7 @@ var _ricochet_t: float = 0.0
 var _health: float
 var _dead: bool = false
 var _won: bool = false
+var _launching: bool = true
 var _boss_seen: bool = false
 var _dash_t: float = 0.0
 var _recover_t: float = 0.0
@@ -128,14 +129,35 @@ func _ready() -> void:
 	# needed for inventory system integration, sets the reference for the player using a global function
 	Globals.player_reference(self)
 	SceneManager.player_beyblade = self
-	AudioManager.play_sfx(launch_sfx_stream,global_position)
 
 	max_contacts_reported = 16
 
 	_health = max_health
-	spin_velocity = starting_spin_velocity
 	_setup_spin_blur()
 	_setup_hud()
+	_play_spawn_intro()
+
+func _play_spawn_intro() -> void:
+	_launching = true
+	freeze = true
+	spin_velocity = 0.0
+	var base_scale := _sprite.scale
+	_sprite.scale = base_scale * 3.0
+	_sprite.modulate.a = 0.0
+	var tw := create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(_sprite, "scale", base_scale, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(_sprite, "modulate:a", 1.0, 0.3)
+	tw.tween_method(_set_spin_velocity, 0.0, starting_spin_velocity, 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tw.chain().tween_callback(_on_spawn_intro_done)
+
+func _set_spin_velocity(v: float) -> void:
+	spin_velocity = v
+
+func _on_spawn_intro_done() -> void:
+	freeze = false
+	_launching = false
+	AudioManager.play_sfx(collision_sfx_stream, global_position)
 
 
 func _exit_tree() -> void:
@@ -146,10 +168,14 @@ func _physics_process(delta: float) -> void:
 	if _dead or _won:
 		return
 
-	_update_boss_ui()
-
 	_sprite.rotate(spin_velocity * delta)
 	_update_spin_blur(delta)
+
+	# during the spawn intro the blade spins up but takes no input or drain yet
+	if _launching:
+		return
+
+	_update_boss_ui()
 	_update_wobble(delta)
 
 	spin_velocity = clamp(spin_velocity - spin_velocity_drop_over_time * delta, spin_floor, spin_cap)
@@ -167,11 +193,18 @@ func _physics_process(delta: float) -> void:
 func _spin_ratio() -> float:
 	return clampf((spin_velocity - spin_floor) / maxf(spin_cap - spin_floor, 0.001), 0.0, 1.0)
 
-func _drive(delta: float) -> void:
-	var input_dir := Vector2(
+# input hooks: AI-driven tops override these to steer without a keyboard
+func _read_move_input() -> Vector2:
+	return Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
+
+func _wants_dash() -> bool:
+	return Input.is_action_just_pressed("dash")
+
+func _drive(delta: float) -> void:
+	var input_dir := _read_move_input()
 	if input_dir.length() > 1.0:
 		input_dir = input_dir.normalized()
 
@@ -275,7 +308,7 @@ func _update_dash(delta: float) -> bool:
 		_shred_horde(delta)
 		return true
 
-	if Input.is_action_just_pressed("dash") and _dash_cd <= 0.0 and spin_velocity >= dash_spin_cost:
+	if _wants_dash() and _dash_cd <= 0.0 and spin_velocity >= dash_spin_cost:
 		_start_dash()
 		_dash_active_step(delta)
 		return true
@@ -405,7 +438,7 @@ func _on_body_entered(body: Node) -> void:
 	if camera and camera.has_method("add_trauma"):
 		camera.add_trauma(collision_shake_trauma * impact)
 
-	if(body is Node2D):
+	if (body is Node2D):
 		var body2D = body as Node2D
 		AudioManager.play_sfx(collision_sfx_stream, body2D.global_position)
 	pass
@@ -473,6 +506,7 @@ func _win() -> void:
 	if _won or _dead:
 		return
 	_won = true
+	SceneManager.report_battle_won()
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
 	if _blade_material:
@@ -535,7 +569,7 @@ func _setup_hud() -> void:
 	skill_area.add_child(_spin_meter)
 
 	_objective_label = Label.new()
-	_objective_label.text = "DEFEAT THE EVIL BEYBLADE"
+	_objective_label.text = "DEFEAT THE EVIL SPINBLADE"
 	_objective_label.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	_objective_label.offset_top = 8.0
 	_objective_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

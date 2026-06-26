@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bs8hb1vkqt5m5"
+path="res://.godot/imported/text_blip.wav-532a90865ddf254f4857685dd0e4634e.sample"
+
+[deps]
+
+source_file="res://Miscellanious Assets Dump/Audio/sfx/text_blip.wav"
+dest_files=["res://.godot/imported/text_blip.wav-532a90865ddf254f4857685dd0e4634e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
