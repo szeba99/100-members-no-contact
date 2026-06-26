@@ -24,6 +24,8 @@ We're making a Beyblade roguelike/metroidvania deckbuilder RPG (Or Beyblade buil
   * ak47.png
   * spinblades-battle.mp3
   * random_characters.png
+  * poof.png
+  * seagull battle tiles and rocks
 
 ## External Assets
 

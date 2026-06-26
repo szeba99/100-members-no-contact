@@ -3,12 +3,15 @@ extends Sprite2D
 
 var target_node = null
 var target_poll_timer = 0.0
-var fire_wait = 0.35
+var fire_wait = 0.11
 var flash_duration = 0.05
 var fire_timer = 0.0
+var burst_timer = 0.0
 var flash_timer = 0.0
 var last_flash = 0
 var dadi: Node2D = null
+
+var mag = 30
 
 const FIRE_RANGE = 400.0
 
@@ -62,24 +65,35 @@ func _process(delta: float) -> void:
 
 	# Load next bullet
 	fire_timer -= delta
+	burst_timer -= delta
 
 	# Target too far?
 	if target_vec.length() >= FIRE_RANGE:
 		return
 
 	# Weapon ready?
-	if fire_timer > 0.0:
+	if fire_timer > 0.0 || burst_timer > 0.0:
 		return
 
 	_fire(target_vec)
 
 
 func _fire(target_vec: Vector2) -> void:
+	# Burst and reload
+	mag -= 1
+	if mag <= 0:
+		mag = 30
+		burst_timer = randf_range(1.6, 3.5)
+	elif randi() % 10 == 0:
+		burst_timer = randf_range(0.5, 0.8)
+
 	fire_timer = fire_wait
 	var bullet = preload("res://Actual Game Folder/scenes/components/exploration/bullet.tscn").instantiate()
 	var tn := target_vec.normalized()
 	bullet.direction = tn.rotated(randf_range(-0.1, 0.1))
 	bullet.transform = $bullet_spawn.global_transform
+	bullet.velocity = 600.0
+	bullet.damage = 9.0
 	SceneManager.bullet_container.add_child(bullet)
 
 	dadi.shove(-tn.rotated(randf_range(-PI/4.0, PI/4.0)), 180.0)

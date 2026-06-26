@@ -1,0 +1,279 @@
+[gd_scene format=4 uid="uid://cnsu14nyqds4r"]
+
+[ext_resource type="Texture2D" uid="uid://dp1e8v8paj7wh" path="res://Actual Game Folder/scenes/battle_arena_natural/tile_grass.png" id="1_4031d"]
+[ext_resource type="Texture2D" uid="uid://dajheoc7du0f" path="res://Actual Game Folder/scenes/battle_arena_natural/tile_ground.png" id="2_7f2rp"]
+[ext_resource type="PackedScene" uid="uid://cq2nlwmxirtc8" path="res://Actual Game Folder/scenes/battle_arena_natural/rock1.tscn" id="3_7f2rp"]
+[ext_resource type="PackedScene" uid="uid://x4xkqkymteql" path="res://Actual Game Folder/scenes/battle_arena_natural/rock3.tscn" id="3_oqq86"]
+[ext_resource type="PackedScene" uid="uid://lit2o25av41b" path="res://Actual Game Folder/scenes/battle_arena_natural/rock2.tscn" id="5_6wkeh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d58c"]
+texture = ExtResource("1_4031d")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqq86"]
+texture = ExtResource("2_7f2rp")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6wkeh"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_6d58c")
+sources/1 = SubResource("TileSetAtlasSource_oqq86")
+
+[node name="BattleArenaNatural" type="Node2D" unique_id=2119468476]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=55066515]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD6////AAAAAAAAAAD7////AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAD5/wAAAAAAAAAAAAD5////AAAAAAAAAAD5//7/AAAAAAAAAAD5//3/AAAAAAAAAAD5//z/AAAAAAAAAAD6//z/AAAAAAAAAAD7//z/AAAAAAAAAAD8//z/AAAAAAAAAAD9//z/AAAAAAAAAAD+//z/AAAAAAAAAAD///z/AAAAAAAAAAAAAPz/AAAAAAAAAAABAPz/AAAAAAAAAAACAPz/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAGAPz/AQAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD6//7/AAAAAAAAAAD6//3/AAAAAAAAAAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAEAP7/AAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD7//7/AAAAAAAAAAD3/wQAAAAAAAAAAAD3/wUAAAAAAAAAAAD4/wQAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wEAAAAAAAAAAAD4/wAAAAAAAAAAAAD4////AAAAAAAAAAD4//7/AAAAAAAAAAD4//3/AAAAAAAAAAD4//z/AAAAAAAAAAD3//z/AAAAAAAAAAD3//3/AAAAAAAAAAD3//7/AAAAAAAAAAD3////AAAAAAAAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAAAAAD3/wIAAAAAAAAAAAD3/wMAAAAAAAAAAAD3//v/AAAAAAAAAAD4//v/AAAAAAAAAAD5//v/AAAAAAAAAAD6//v/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAAHAPv/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAADAPr/AAAAAAAAAAACAPr/AAAAAAAAAAABAPr/AAAAAAAAAAAAAPr/AAAAAAAAAAD///r/AAAAAAAAAAD+//r/AAAAAAAAAAD9//r/AAAAAAAAAAD8//r/AAAAAAAAAAD7//r/AAAAAAAAAAD6//r/AAAAAAAAAAD5//r/AAAAAAAAAAD4//r/AAAAAAAAAAD3//r/AAAAAAAAAAAHAPz/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_6wkeh")
+
+[node name="rocks" type="StaticBody2D" parent="." unique_id=1536117066]
+
+[node name="rockc3" parent="rocks" unique_id=1550732459 instance=ExtResource("3_oqq86")]
+position = Vector2(699, -569)
+
+[node name="rockc" parent="rocks" unique_id=64862483 instance=ExtResource("3_oqq86")]
+position = Vector2(-343, -589)
+
+[node name="rocka" parent="rocks" unique_id=806825064 instance=ExtResource("3_7f2rp")]
+position = Vector2(-496, -545)
+
+[node name="rockb" parent="rocks" unique_id=79851382 instance=ExtResource("5_6wkeh")]
+position = Vector2(-683, -522)
+
+[node name="rockb2" parent="rocks" unique_id=1663922153 instance=ExtResource("5_6wkeh")]
+position = Vector2(-157, -548)
+
+[node name="rockb3" parent="rocks" unique_id=83883891 instance=ExtResource("5_6wkeh")]
+position = Vector2(113, -579)
+
+[node name="rocka2" parent="rocks" unique_id=1891157079 instance=ExtResource("3_7f2rp")]
+position = Vector2(-845, -469)
+
+[node name="rocka3" parent="rocks" unique_id=113247541 instance=ExtResource("3_7f2rp")]
+position = Vector2(20, -485)
+
+[node name="rocka4" parent="rocks" unique_id=1653241858 instance=ExtResource("3_7f2rp")]
+position = Vector2(524, -536)
+
+[node name="rockb8" parent="rocks" unique_id=1240757075 instance=ExtResource("5_6wkeh")]
+position = Vector2(-947, -335)
+
+[node name="rocka6" parent="rocks" unique_id=1196685042 instance=ExtResource("3_7f2rp")]
+position = Vector2(-903, -175)
+
+[node name="rockc4" parent="rocks" unique_id=1181803918 instance=ExtResource("3_oqq86")]
+position = Vector2(-831, -41)
+
+[node name="rocka7" parent="rocks" unique_id=1388569178 instance=ExtResource("3_7f2rp")]
+position = Vector2(-863, 63)
+
+[node name="rockc2" parent="rocks" unique_id=622793289 instance=ExtResource("3_oqq86")]
+position = Vector2(333, -505)
+
+[node name="rockb5" parent="rocks" unique_id=715503242 instance=ExtResource("5_6wkeh")]
+position = Vector2(826, -488)
+
+[node name="rockb7" parent="rocks" unique_id=1241488701 instance=ExtResource("5_6wkeh")]
+position = Vector2(-926, 131)
+
+[node name="rockc6" parent="rocks" unique_id=1383308939 instance=ExtResource("3_oqq86")]
+position = Vector2(965, -359)
+
+[node name="rockc5" parent="rocks" unique_id=1789676843 instance=ExtResource("3_oqq86")]
+position = Vector2(-818, 322)
+
+[node name="rocka10" parent="rocks" unique_id=1652060304 instance=ExtResource("3_7f2rp")]
+position = Vector2(-928, 433)
+
+[node name="rocka5" parent="rocks" unique_id=1927343515 instance=ExtResource("3_7f2rp")]
+position = Vector2(923, -252)
+
+[node name="rockb12" parent="rocks" unique_id=2115359551 instance=ExtResource("5_6wkeh")]
+position = Vector2(955, -97)
+
+[node name="rocka11" parent="rocks" unique_id=628751773 instance=ExtResource("3_7f2rp")]
+position = Vector2(810, -98)
+
+[node name="rockb6" parent="rocks" unique_id=1152108607 instance=ExtResource("5_6wkeh")]
+position = Vector2(-842, 502)
+
+[node name="rockb4" parent="rocks" unique_id=1029780574 instance=ExtResource("5_6wkeh")]
+position = Vector2(302, 85)
+
+[node name="rockb9" parent="rocks" unique_id=119331843 instance=ExtResource("5_6wkeh")]
+position = Vector2(940, 58)
+
+[node name="rocka8" parent="rocks" unique_id=925987667 instance=ExtResource("3_7f2rp")]
+position = Vector2(806, 146)
+
+[node name="rockc7" parent="rocks" unique_id=1809386901 instance=ExtResource("3_oqq86")]
+position = Vector2(866, 296)
+
+[node name="rockc8" parent="rocks" unique_id=75242179 instance=ExtResource("3_oqq86")]
+position = Vector2(537, 453)
+
+[node name="rocka14" parent="rocks" unique_id=568991179 instance=ExtResource("3_7f2rp")]
+position = Vector2(97, 442)
+
+[node name="rockc9" parent="rocks" unique_id=19257923 instance=ExtResource("3_oqq86")]
+position = Vector2(-44, 493)
+
+[node name="rocka9" parent="rocks" unique_id=1407523925 instance=ExtResource("3_7f2rp")]
+position = Vector2(926, 456)
+
+[node name="rocka12" parent="rocks" unique_id=584854252 instance=ExtResource("3_7f2rp")]
+position = Vector2(646, 545)
+
+[node name="rocka13" parent="rocks" unique_id=1717905003 instance=ExtResource("3_7f2rp")]
+position = Vector2(376, 481)
+
+[node name="rockb10" parent="rocks" unique_id=2065509310 instance=ExtResource("5_6wkeh")]
+position = Vector2(803, 560)
+
+[node name="rockb11" parent="rocks" unique_id=1887293372 instance=ExtResource("5_6wkeh")]
+position = Vector2(-327, 429)
+
+[node name="rockb13" parent="rocks" unique_id=2108582071 instance=ExtResource("5_6wkeh")]
+position = Vector2(249, 507)
+
+[node name="rocka15" parent="rocks" unique_id=880078755 instance=ExtResource("3_7f2rp")]
+position = Vector2(-183, 562)
+
+[node name="rocka16" parent="rocks" unique_id=1363107646 instance=ExtResource("3_7f2rp")]
+position = Vector2(-442, 506)
+
+[node name="rocka17" parent="rocks" unique_id=1866968635 instance=ExtResource("3_7f2rp")]
+position = Vector2(-692, 576)
+
+[node name="rocka18" parent="rocks" unique_id=820700660 instance=ExtResource("3_7f2rp")]
+position = Vector2(-317, -130)
+
+[node name="rockc10" parent="rocks" unique_id=1965253187 instance=ExtResource("3_oqq86")]
+position = Vector2(-555, 579)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://x4xkqkymteql"]
+
+[ext_resource type="Texture2D" uid="uid://dghfuri46dviu" path="res://Actual Game Folder/scenes/battle_arena_natural/rock3.png" id="1_1wnyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfloh"]
+radius = 117.00427
+
+[node name="rock3" type="CollisionShape2D" unique_id=1550732459]
+shape = SubResource("CircleShape2D_yfloh")
+
+[node name="rock3" type="Sprite2D" parent="." unique_id=314295320]
+scale = Vector2(4, 4)
+texture = ExtResource("1_1wnyy")

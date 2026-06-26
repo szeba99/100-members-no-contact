@@ -1116,9 +1116,9 @@ destination = 6
 position = Vector2(600, 325)
 wall_id = "gf_garage_1"
 
-[node name="GarageWall2" parent="." unique_id=599691813 instance=ExtResource("6_crwall")]
+[node name="GarageWall2" parent="." unique_id=1606934323 instance=ExtResource("6_crwall")]
 position = Vector2(600, 385)
-wall_id = "gf_garage_2"
+wall_id = "gf_garage_1"
 
 [node name="GarageWall3" parent="." unique_id=739540347 instance=ExtResource("6_crwall")]
 position = Vector2(600, 445)
@@ -1137,6 +1137,10 @@ position = Vector2(845, 337)
 [node name="Seagull" parent="." unique_id=365002936 instance=ExtResource("9_e3i70")]
 position = Vector2(767, 671)
 
+[node name="CharacterBody2D" parent="Seagull" index="0" unique_id=1226606288]
+reward = "seagull_contempt"
+enemy_id = "seagull1"
+
 [node name="Grave" parent="." unique_id=483528663 instance=ExtResource("14_br5mg")]
 position = Vector2(91.00001, 235)
 scale = Vector2(0.51, 0.51)
@@ -1144,3 +1148,4 @@ scale = Vector2(0.51, 0.51)
 [editable path="PlayerEx"]
 [editable path="PlayerEx/CharacterBody2D/Camera2D/DialogueBox"]
 [editable path="Enemy"]
+[editable path="Seagull"]

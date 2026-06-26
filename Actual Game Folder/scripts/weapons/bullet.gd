@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 	# Collisions
 	queue_free() # This for sure unless you want piercing, bouncing, forking...
-
+	
 	var collider = res["collider"]
 
 	# If it's a player
@@ -36,5 +36,10 @@ func _physics_process(delta: float) -> void:
 		collider.take_damage(damage)
 
 	# If it's an enemy
-	if collider.is_in_group("horde_enemy"):
+	elif collider.is_in_group("horde_enemy"):
 		collider.take_damage(damage)
+
+	else:
+		var poof = preload("res://Actual Game Folder/scenes/battle_arena_natural/poof.tscn").instantiate()
+		get_parent().add_child(poof)
+		poof.position = position

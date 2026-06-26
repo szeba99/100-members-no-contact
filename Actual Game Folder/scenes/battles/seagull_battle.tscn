@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cqnmw2fn6swal"]
+
+[ext_resource type="Script" uid="uid://bh2m0r6qrvv6g" path="res://Actual Game Folder/scenes/battles/seagull_battle.gd" id="1_k66a4"]
+[ext_resource type="PackedScene" uid="uid://cnsu14nyqds4r" path="res://Actual Game Folder/scenes/battle_arena_natural/battle_arena_natural.tscn" id="2_pv4e4"]
+[ext_resource type="Script" uid="uid://pbx5c2p7gv2v" path="res://Actual Game Folder/scripts/follow_cam.gd" id="2_sdmmf"]
+[ext_resource type="PackedScene" uid="uid://e1d03bbv2uh" path="res://Actual Game Folder/scenes/components/player.tscn" id="3_sdmmf"]
+[ext_resource type="Script" uid="uid://drvfmqwmg5tgy" path="res://Actual Game Folder/scripts/battle/battle_top.gd" id="4_hdhla"]
+[ext_resource type="Script" uid="uid://vust36y4oh0x" path="res://Actual Game Folder/scripts/button/end_battle.gd" id="5_pv4e4"]
+
+[node name="SeagullBattle" type="Node" unique_id=691599955]
+script = ExtResource("1_k66a4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1076054190 node_paths=PackedStringArray("target")]
+zoom = Vector2(1.6, 1.6)
+limit_left = -1138
+limit_top = -750
+limit_right = 1135
+limit_bottom = 749
+script = ExtResource("2_sdmmf")
+target = NodePath("../Player")
+follow_magnitude = 4.0
+
+[node name="BattleArenaNatural" parent="." unique_id=2119468476 instance=ExtResource("2_pv4e4")]
+
+[node name="Player" parent="." unique_id=362700453 instance=ExtResource("3_sdmmf")]
+script = ExtResource("4_hdhla")
+follow_deadzone = 14.0
+follow_ramp = 130.0
+mouse_button_dash = true
+precession_amount = 0.3
+coin_value = 1
+
+[node name="game_area" type="Node" parent="." unique_id=981888963]
+
+[node name="Polygon2D2" type="Polygon2D" parent="game_area" unique_id=782079446]
+visible = false
+polygon = PackedVector2Array(253, -364, 415, -377, 463, -441, 524, -417, 648, -438, 710, -424, 746, -353, 803, -317, 768, -220, 684, -156, 678, -73, 722, -2, 684, 111, 712, 242, 712, 323, 548, 323, 418, 330, 300, 377, 104, 333, -24, 348, -156, 361, -336, 280, -348, -24, -211, -12, -170, -91, 153, 39, 188, 189, 288, 238, 415, 215, 455, 102, 415, -10, 288, -68)
+
+[node name="Polygon2D" type="Polygon2D" parent="game_area" unique_id=1883556768]
+visible = false
+polygon = PackedVector2Array(-688, 429, -668, 325, -730, 203, -710, 83, -683, -75, -778, -191, -809, -333, -729, -373, -546, -383, -510, -426, -301, -454, -184, -400, -65, -411, 27, -367, 117, -392, 176, -431, 270, -384, 296, -59, 209, -40, 160, 81, -192, -90, -249, -245, -353, -237, -420, -193, -429, -70, -392, -36, -327, -26, -317, 284, -391, 302, -481, 368, -533, 414)
+
+[node name="enemy_container" type="Node" parent="." unique_id=1094467505]
+
+[node name="bullet_container" type="Node2D" parent="." unique_id=1389073593]
+
+[node name="debris_container" type="Node" parent="." unique_id=938729368]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1209468799]
+
+[node name="EndBattle" type="Button" parent="CanvasLayer" unique_id=85500187]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 47.0
+grow_horizontal = 0
+text = "End Battle"
+script = ExtResource("5_pv4e4")

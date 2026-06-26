@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://by5ej2ifpvin4"]
+
+[ext_resource type="Texture2D" uid="uid://uh8gcdh85iwy" path="res://Actual Game Folder/scenes/battle_arena_natural/poof.png" id="1_grdkk"]
+[ext_resource type="Script" uid="uid://de6nt1to4ken2" path="res://Actual Game Folder/scenes/battle_arena_natural/poof.gd" id="2_kbk03"]
+[ext_resource type="AudioStream" uid="uid://cg0753hy0g0aa" path="res://Miscellanious Assets Dump/Audio/sfx/collide.wav" id="3_kbk03"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5qs"]
+atlas = ExtResource("1_grdkk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h68y3"]
+atlas = ExtResource("1_grdkk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm4ym"]
+atlas = ExtResource("1_grdkk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pv8j"]
+atlas = ExtResource("1_grdkk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygp2d"]
+atlas = ExtResource("1_grdkk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_my2gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h68y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm4ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pv8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygp2d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="poof" type="AnimatedSprite2D" unique_id=909897091]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_my2gd")
+autoplay = "default"
+frame_progress = 0.92703015
+script = ExtResource("2_kbk03")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=917667406]
+stream = ExtResource("3_kbk03")
+autoplay = true

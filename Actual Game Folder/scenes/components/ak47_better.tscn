@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://mi33t0ijpgaw"]
+
+[ext_resource type="Texture2D" uid="uid://rb0acr762peu" path="res://Actual Game Folder/sprites/weapons/ak47.png" id="1_oxyp2"]
+[ext_resource type="Script" uid="uid://c7hl666q7d464" path="res://Actual Game Folder/scripts/weapons/ak47_better.gd" id="2_oxyp2"]
+[ext_resource type="AudioStream" uid="uid://cg0753hy0g0aa" path="res://Miscellanious Assets Dump/Audio/sfx/collide.wav" id="3_qgg01"]
+
+[node name="ak47_better" type="Sprite2D" unique_id=1742752380]
+texture = ExtResource("1_oxyp2")
+offset = Vector2(2.667, -0.3333335)
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 7)
+script = ExtResource("2_oxyp2")
+
+[node name="flash1" type="Sprite2D" parent="." unique_id=1918488687]
+visible = false
+position = Vector2(12, -1.283)
+texture = ExtResource("1_oxyp2")
+offset = Vector2(4, 0)
+region_enabled = true
+region_rect = Rect2(3, 12, 8, 5)
+
+[node name="flash2" type="Sprite2D" parent="." unique_id=1907144641]
+visible = false
+position = Vector2(12, -1.3333337)
+texture = ExtResource("1_oxyp2")
+offset = Vector2(6, 0)
+region_enabled = true
+region_rect = Rect2(3, 18, 12, 5)
+
+[node name="flash3" type="Sprite2D" parent="." unique_id=310442026]
+visible = false
+position = Vector2(12, -1.3333337)
+texture = ExtResource("1_oxyp2")
+offset = Vector2(4.666667, 0)
+region_enabled = true
+region_rect = Rect2(3, 24, 10, 5)
+
+[node name="bullet_spawn" type="Marker2D" parent="." unique_id=518705453]
+visible = false
+position = Vector2(20, -1.3333334)
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1114910596]
+stream = ExtResource("3_qgg01")
+bus = &"sfx"

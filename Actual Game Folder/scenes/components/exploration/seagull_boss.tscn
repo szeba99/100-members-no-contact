@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://betnr3uex5ipt"]
+
+[ext_resource type="Script" uid="uid://c8h0rd3enemy1" path="res://Actual Game Folder/scripts/exploration/horde_enemy.gd" id="1_i4nb7"]
+[ext_resource type="Texture2D" uid="uid://cpxwj4mbnd8s2" path="res://Miscellanious Assets Dump/Image/characters/random_characters.png" id="2_t1yfd"]
+[ext_resource type="Script" uid="uid://ba7n3xp1vkvwo" path="res://Actual Game Folder/scenes/components/exploration/horde_seagull_sprite.gd" id="3_sy5eq"]
+[ext_resource type="PackedScene" uid="uid://mi33t0ijpgaw" path="res://Actual Game Folder/scenes/components/ak47_better.tscn" id="4_t1yfd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horde"]
+size = Vector2(20, 15.333333)
+
+[node name="SeagullBoss" type="CharacterBody2D" unique_id=2136941227 groups=["horde_enemy"]]
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_i4nb7")
+move_speed = 150.0
+contact_damage = 3.0
+contact_range = 30.0
+max_health = 100.0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1674603385]
+texture = ExtResource("2_t1yfd")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(35, 5, 21, 14)
+script = ExtResource("3_sy5eq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472284475]
+position = Vector2(-9.536743e-07, 4.7683716e-07)
+shape = SubResource("RectangleShape2D_horde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=612361513]
+
+[node name="ak47" parent="." unique_id=1742752380 instance=ExtResource("4_t1yfd")]

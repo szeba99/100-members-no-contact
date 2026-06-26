@@ -17,6 +17,7 @@ enum SceneKey {
 	
 	#--- Gameplay
 	GAMEPLAY,
+	SEAGULL_BATTLE,
 	
 	# --- More
 	IDK
@@ -28,6 +29,7 @@ const _SCENES_MAP: Dictionary = {
 	SceneKey.FUTURE_PLACE: "res://Actual Game Folder/scenes/levels/exploration/future_place.tscn",
 	SceneKey.DUNGEON: "res://Actual Game Folder/scenes/levels/exploration/dungeon.tscn",
 	SceneKey.GAMEPLAY: "res://Actual Game Folder/scenes/gameplay.tscn",
+	SceneKey.SEAGULL_BATTLE: "res://Actual Game Folder/scenes/battles/seagull_battle.tscn",
 	SceneKey.GARAGE: "res://Actual Game Folder/scenes/levels/exploration/garage.tscn",
 }
 
@@ -37,6 +39,7 @@ var _battle_active: bool = false
 var pending_reward_dialogue: Array[String] = []
 var player_beyblade: Node2D = null
 var bullet_container: Node2D = null
+var debris_container: Node = null
 
 var _suspended: Array = []
 
@@ -80,7 +83,11 @@ func _enter_battle_now(context: Dictionary) -> void:
 		if current_scene.get_parent() == _WORLD_NODE:
 			_WORLD_NODE.remove_child(current_scene)
 
-	current_scene = _mount(SceneKey.GAMEPLAY)
+	# Not ideal.
+	if context["name"] == "Just Seagull":
+		current_scene = _mount(SceneKey.SEAGULL_BATTLE)
+	else:
+		current_scene = _mount(SceneKey.GAMEPLAY)
 	_battle_active = true
 	AudioManager.crossfade_music(preload("res://Miscellanious Assets Dump/Audio/music/spinblades-battle.mp3"))
 
@@ -127,6 +134,10 @@ func report_battle_won() -> void:
 				"A deal's a deal. Here ya go — the SPIN-DASH, like I promised, you betcha.",
 				"Press Space while yer movin' to bust clean through a wall.",
 				"Head east — there's a stack of Minnesotas wallin' off the garage. Crack 'em open and go bug the mechanic, bud."
+			]
+		"seagull_contempt":
+			pending_reward_dialogue = [
+				"squawk!",
 			]
 
 func take_reward_dialogue() -> Array[String]:

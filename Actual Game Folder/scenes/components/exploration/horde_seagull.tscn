@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://baukpd2ytbu35"]
+
+[ext_resource type="Script" uid="uid://c8h0rd3enemy1" path="res://Actual Game Folder/scripts/exploration/horde_enemy.gd" id="1_i3gr0"]
+[ext_resource type="Texture2D" uid="uid://cpxwj4mbnd8s2" path="res://Miscellanious Assets Dump/Image/characters/random_characters.png" id="2_i3gr0"]
+[ext_resource type="Script" uid="uid://ba7n3xp1vkvwo" path="res://Actual Game Folder/scenes/components/exploration/horde_seagull_sprite.gd" id="3_p4u6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horde"]
+size = Vector2(20, 15.333333)
+
+[node name="HordeSeagull" type="CharacterBody2D" unique_id=2136941227 groups=["horde_enemy"]]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_i3gr0")
+move_speed = 150.0
+contact_damage = 3.0
+contact_range = 30.0
+max_health = 10.0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1674603385]
+texture = ExtResource("2_i3gr0")
+region_enabled = true
+region_rect = Rect2(35, 5, 21, 14)
+script = ExtResource("3_p4u6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472284475]
+position = Vector2(-3.1789145e-07, 0.33333334)
+shape = SubResource("RectangleShape2D_horde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=612361513]

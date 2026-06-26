@@ -15,9 +15,10 @@ script = ExtResource("1_if8d7")
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_oqbsf")
 dialogue = Array[String](["Give.", "Give...", "giv?", "givgivgivgivgivgivgivgivgiv!!!!"])
-is_bad = false
+next_scene = "uid://cqnmw2fn6swal"
 enemy_name = "Just Seagull"
 voice_pitch = 2.0
+post_defeat_dialogue = Array[String](["u no giv <\\3"])
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=546804820]
 texture = ExtResource("2_if8d7")
